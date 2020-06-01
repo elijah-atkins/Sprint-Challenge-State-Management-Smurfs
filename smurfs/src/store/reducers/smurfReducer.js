@@ -1,45 +1,74 @@
+import axios from 'axios'
 //import actions
 import {
-    SMURF_FETCHING,
-    SMURF_FETCH_SUCCESS,
-    SMURF_FETCH_ERROR
-} from '../actions/smurfActions';
+  ADD_SMURF,
+  SMURF_FETCH_SUCCESS,
+  SMURF_FETCH_ERROR,
+  UPDATE_NAME,
+  UPDATE_AGE,
+  UPDATE_HEIGHT,
+} from "../actions";
 
-const initialState = [{
+const initialState = [
+  {
+    name: '',
+    age: '',
+    height: '',
+    error: '',
+    smurfs: []
+  },
+];
 
-    name: 'Brainey',
-    age: 200,
-    height: '5cm',
-    id: 0
+axios
+  .get('http://localhost:3333/smurfs')
+  .then(res => {
+    initialState.smurfs = res.data
+  })
 
-}];
-
-export const smurfReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case SMURF_FETCHING:
-      return {
-        ...state,
-        fetchingSmurf: true,
-      }; // if we're fetching simply trigger the boolean!
-    case SMURF_FETCH_SUCCESS:
-      //console.log('smurfReducer Fetch Succesful',action.payload)
-      return {
-        ...state,
-        ...action.payload, // if our promise was successfull, build out the smurfs array.
-        fetchingSmurf: false, // also, set our boolean to false, because we're no longer fetching
-        error: "",
-      };
-    case SMURF_FETCH_ERROR:
-      return {
-        ...state,
-        fetchingSmurf: false, // we're also no longer fetching here so set the boolean to false
-        error: "Error fetching Location", // now we're getting an error back, set the error as we'd see fit
-      };
-    default:
-      return state;
+  export const smurfReducer = (state = initialState, action) => {
+    switch(action.type) {
+      case ADD_SMURF:
+        const newSmurf = {
+          name: state.name,
+          age: state.age,
+          height: state.height
+        }
+        axios.post('http://localhost:3333/smurfs', newSmurf)
+        return {
+          ...state,
+          name: '',
+          age: '',
+          height: ''
+        }
+      case SMURF_FETCH_ERROR:
+        return {
+          ...state,
+          error: action.payload
+        }
+      case SMURF_FETCH_SUCCESS:
+        return {
+          ...state,
+          smurfs: action.payload
+        }
+      case UPDATE_NAME:
+        return {
+          ...state,
+          name: action.payload
+        }
+      case UPDATE_AGE:
+        return {
+          ...state,
+          age: action.payload
+        }
+      case UPDATE_HEIGHT:
+        return {
+          ...state,
+          height: action.payload
+        }
+      default:
+        return state;
+    }
   }
-};
-
 // fetching
 // feteched
 // errorFetching
