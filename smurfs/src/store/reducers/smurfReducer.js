@@ -1,5 +1,9 @@
 //import actions
-
+import {
+    SMURF_FETCHING,
+    SMURF_FETCH_SUCCESS,
+    SMURF_FETCH_ERROR
+} from '../actions/smurfaction';
 const initialState = {
   smurfs: [
     {
@@ -24,7 +28,7 @@ export const smurfReducer = (state = initialState, action) => {
       //console.log('smurfReducer Fetch Succesful',action.payload)
       return {
         ...state,
-        ...action.payload, // if our promise was successfull, build out the dogs array.
+        ...action.payload, // if our promise was successfull, build out the smurfs array.
         fetchingSmurf: false, // also, set our boolean to false, because we're no longer fetching
         error: "",
       };
