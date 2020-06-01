@@ -3,7 +3,8 @@ import {
     SMURF_FETCHING,
     SMURF_FETCH_SUCCESS,
     SMURF_FETCH_ERROR
-} from '../actions/smurfaction';
+} from '../actions/smurfActions';
+
 const initialState = {
   smurfs: [
     {
