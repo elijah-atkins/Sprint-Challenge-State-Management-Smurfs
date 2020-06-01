@@ -5,18 +5,14 @@ import {
     SMURF_FETCH_ERROR
 } from '../actions/smurfActions';
 
-const initialState = {
-  smurfs: [
-    {
-      name: "Papa",
-      age: 600,
-      height: "4.8cm",
-      id: 0,
-    },
-  ],
-  fetchingSmurf: false,
-  error: "",
-};
+const initialState = [{
+
+    name: 'Brainey',
+    age: 200,
+    height: '5cm',
+    id: 0
+
+}];
 
 export const smurfReducer = (state = initialState, action) => {
   switch (action.type) {
