@@ -1,8 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router } from 'react-router-dom';
-
+import thunk from "redux-thunk";
+import { Provider } from "react-redux";
 import "./index.css";
 import App from "./components/App";
+import { createStore, applyMiddleware } from "redux";
 
-ReactDOM.render(<Router><App /></Router>, document.getElementById("root"));
+ReactDOM.render(<Provider><App /></Provider>, document.getElementById("root"));
