@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
+import axios from 'axios';
 //import connect
 //import addSmurf actions
 
@@ -7,7 +8,9 @@ export const AddSmurf = () =>{
     const handleChanges = e => {
 
       };
-      const handleSubmit = e => {
+    const postData = e => {
+        e.preventDefault();
+        console.log(e, e.target.value)
 
     };
     const handleClearForm = e => {
@@ -16,7 +19,7 @@ export const AddSmurf = () =>{
 
     return (
         <div className="form">
-        <form>
+        <form onSubmit={postData}>
   <label for="name">Name:</label>
   <input type="text" id="name" name="name" />
   <label for="age">Age:</label>
