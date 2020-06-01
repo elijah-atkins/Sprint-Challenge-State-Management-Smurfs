@@ -3,9 +3,27 @@ import { connect } from 'react-redux';
 import { fetchSmurf } from '../store/actions/smurfActions';
 
 const Smurfs = (props) => {
-    console.log('Smurfs props', props);
+    const smurfs = props.smurfs;
+    console.log('Smurfs props', smurfs[0]);
+
     return(
-        <div>Smurf It</div>
+        <div className="smurfVillage">
+        {smurfs.map((smurf) => {
+            return(
+                <div className="Smurf">
+                    <div className="name">
+                        <h1>{smurf.name}</h1>
+                    </div>
+                    <div className="age">
+                        <p>{smurf.age} years old</p>
+                    </div>
+                    <div className="height">
+                    <p>{smurf.height} tall</p>
+                    </div>
+                </div>
+            )
+        })}
+        </div>
     )
 }
 

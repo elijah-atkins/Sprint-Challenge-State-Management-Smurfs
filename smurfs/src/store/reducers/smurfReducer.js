@@ -8,9 +8,9 @@ import {
 const initialState = {
   smurfs: [
     {
-      name: "Brainey",
-      age: 200,
-      height: "5cm",
+      name: "Papa",
+      age: 600,
+      height: "4.8cm",
       id: 0,
     },
   ],
