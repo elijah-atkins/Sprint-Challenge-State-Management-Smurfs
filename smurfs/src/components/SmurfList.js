@@ -12,8 +12,8 @@ class SmurfList extends React.Component {
           smurfs.map((smurf, index) => (
             <div key={index} className="smurf">
               <h1 className="details">{smurf.name}</h1>
-              <p className="details">{smurf.age}</p>
-              <p className="details">{smurf.height}</p>
+              <p className="details">Age: {smurf.age}</p>
+              <p className="details">Height: {smurf.height}</p>
             </div>
           ))}
       </div>
