@@ -45,7 +45,7 @@ class AddSmurfForm extends React.Component {
       });
     } else {
       this.setState({
-        error: "Smurf it! We wanna know more about this new smurf!!",
+        error: "You Smurf'd up! We wanna know more about this new smurf!!",
       });
     }
   };
@@ -94,6 +94,7 @@ const mapStateToProps = (state) => {
     name: state.name,
     age: state.age,
     height: state.height,
+    smurfs: state.smurfs
   };
 };
 

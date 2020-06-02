@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 class SmurfList extends React.Component {
+  
   render() {
     const smurfs = this.props.smurfs;
     console.log("ea, SmurfList props", this.props);
